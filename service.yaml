@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+  labels:
+    app: myapp  # Adicionando uma label para organização
+spec:
+  type: LoadBalancer
+  selector:
+    app: myapp
+  ports:
+    - port: 80               # Porta exposta externamente
+      targetPort: 8000        # Porta interna nos pods
+      protocol: TCP           # Definindo explicitamente o protocolo TCP
